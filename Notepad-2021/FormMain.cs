@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Notepad_2021
 {
@@ -27,7 +21,12 @@ namespace Notepad_2021
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            setFormTitle();
+        }
 
+        private void setFormTitle()
+        {
+            this.Text = fileName + this.Tag; ;
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,8 +38,19 @@ namespace Notepad_2021
         {
             if (richTextBoxMain.Text != savedContent)
             {
-                MessageBox.Show("C'è qualcosa da salvare...");
-                e.Cancel = true;
+                DialogResult result = MessageBox.Show(
+                    "Salvare le modifiche a " + fileName + "?",
+                    "Blocco note",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+                if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else if (result == DialogResult.Yes)
+                {
+                    //TODO: gestire BENE il salvataggio
+                }
             }
         }
 
@@ -58,9 +68,26 @@ namespace Notepad_2021
                 saveDocument(filePath);
         }
 
-        private void saveDocument(string filePath)
+        private void saveDocument(string fp)
         {
-            MessageBox.Show("Sto per salvare al path: " + filePath);
+            try
+            {
+                string content = richTextBoxMain.Text;
+                File.WriteAllText(fp, content);
+                savedContent = content;
+                filePath = fp;
+                string[] mySplit = fp.Split('\\');
+                fileName = mySplit[mySplit.Length - 1];
+                setFormTitle();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Problemi durante il salvataggio del file.",
+                    "ATTENZIONE!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
         }
     }
 }
