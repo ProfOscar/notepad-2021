@@ -49,7 +49,22 @@ namespace Notepad_2021
                 }
                 else if (result == DialogResult.Yes)
                 {
-                    //TODO: gestire BENE il salvataggio
+                    if (filePath != "")
+                    {
+                        saveDocument(filePath);
+                    }
+                    else
+                    {
+                        DialogResult saveResponse = saveFileDialogMain.ShowDialog();
+                        if (saveResponse == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            saveDocument(saveFileDialogMain.FileName);
+                        }
+                    }
                 }
             }
         }
