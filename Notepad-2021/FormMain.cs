@@ -13,14 +13,20 @@ namespace Notepad_2021
 
         public FormMain()
         {
-            fileName = "Senza nome";
-            filePath = "";
-            savedContent = "";
             InitializeComponent();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            initializeVariables();
+        }
+
+        private void initializeVariables()
+        {
+            fileName = "Senza nome";
+            filePath = "";
+            savedContent = "";
+            richTextBoxMain.Clear();
             setFormTitle();
         }
 
@@ -38,35 +44,39 @@ namespace Notepad_2021
         {
             if (richTextBoxMain.Text != savedContent)
             {
-                DialogResult result = MessageBox.Show(
-                    "Salvare le modifiche a " + fileName + "?",
-                    "Blocco note",
-                    MessageBoxButtons.YesNoCancel,
-                    MessageBoxIcon.Question);
-                if (result == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                }
+                DialogResult result = checkIfUserWantToSave();
+                if (result == DialogResult.Cancel) e.Cancel = true;
                 else if (result == DialogResult.Yes)
                 {
-                    if (filePath != "")
-                    {
-                        saveDocument(filePath);
-                    }
+                    if (filePath != "") saveDocument(filePath);
                     else
                     {
                         DialogResult saveResponse = saveFileDialogMain.ShowDialog();
-                        if (saveResponse == DialogResult.Cancel)
-                        {
-                            e.Cancel = true;
-                        }
-                        else
-                        {
-                            saveDocument(saveFileDialogMain.FileName);
-                        }
+                        if (saveResponse == DialogResult.Cancel) e.Cancel = true;
+                        else saveDocument(saveFileDialogMain.FileName);
                     }
                 }
             }
+        }
+
+        private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.Text != savedContent)
+            {
+                DialogResult result = checkIfUserWantToSave();
+                if (result == DialogResult.Cancel) return;
+                else if (result == DialogResult.Yes)
+                {
+                    if (filePath != "") saveDocument(filePath);
+                    else
+                    {
+                        DialogResult saveResponse = saveFileDialogMain.ShowDialog();
+                        if (saveResponse == DialogResult.Cancel) return;
+                        else saveDocument(saveFileDialogMain.FileName);
+                    }
+                }
+            }
+            initializeVariables();
         }
 
         private void salvaconnomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -81,6 +91,15 @@ namespace Notepad_2021
                 salvaconnomeToolStripMenuItem_Click(sender, e);
             else
                 saveDocument(filePath);
+        }
+
+        private DialogResult checkIfUserWantToSave()
+        {
+            return MessageBox.Show(
+                    "Salvare le modifiche a " + fileName + "?",
+                    "Blocco note",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
         }
 
         private void saveDocument(string fp)
@@ -104,5 +123,6 @@ namespace Notepad_2021
                     MessageBoxIcon.Warning);
             }
         }
+
     }
 }
