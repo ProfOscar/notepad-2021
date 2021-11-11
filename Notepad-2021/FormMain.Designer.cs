@@ -431,6 +431,7 @@
             this.richTextBoxMain.Size = new System.Drawing.Size(784, 395);
             this.richTextBoxMain.TabIndex = 1;
             this.richTextBoxMain.Text = "";
+            this.richTextBoxMain.TextChanged += new System.EventHandler(this.richTextBoxMain_TextChanged);
             // 
             // statusBarMain
             // 

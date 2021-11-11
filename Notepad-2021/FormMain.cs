@@ -32,7 +32,7 @@ namespace Notepad_2021
 
         private void setFormTitle()
         {
-            this.Text = fileName + this.Tag; ;
+            this.Text = fileName + this.Tag;
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,5 +173,17 @@ namespace Notepad_2021
             }
         }
 
+        private void richTextBoxMain_TextChanged(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.Text != savedContent && fileName[0] != '*')
+            {
+                fileName = "*" + fileName;
+                setFormTitle();
+            } else if(richTextBoxMain.Text == savedContent && fileName[0] == '*')
+            {
+                fileName = fileName.Remove(0, 1);
+                setFormTitle();
+            }
+        }
     }
 }
