@@ -127,6 +127,7 @@
             this.apriToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.apriToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.apriToolStripMenuItem.Text = "&Apri...";
+            this.apriToolStripMenuItem.Click += new System.EventHandler(this.apriToolStripMenuItem_Click);
             // 
             // salvaToolStripMenuItem
             // 
@@ -447,7 +448,8 @@
             // 
             // openFileDialogMain
             // 
-            this.openFileDialogMain.FileName = "openFileDialog1";
+            this.openFileDialogMain.DefaultExt = "txt";
+            this.openFileDialogMain.Filter = "Documenti di testo|*.txt|Tutti i file|*.*";
             // 
             // FormMain
             // 

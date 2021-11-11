@@ -79,6 +79,30 @@ namespace Notepad_2021
             initializeVariables();
         }
 
+        private void apriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.Text != savedContent)
+            {
+                DialogResult result = checkIfUserWantToSave();
+                if (result == DialogResult.Cancel) return;
+                else if (result == DialogResult.Yes)
+                {
+                    if (filePath != "") saveDocument(filePath);
+                    else
+                    {
+                        DialogResult saveResponse = saveFileDialogMain.ShowDialog();
+                        if (saveResponse == DialogResult.Cancel) return;
+                        else saveDocument(saveFileDialogMain.FileName);
+                    }
+                }
+            }
+            if (openFileDialogMain.ShowDialog() == DialogResult.OK)
+            {
+                openDocument(openFileDialogMain.FileName);
+                openFileDialogMain.FileName = "";
+            }
+        }
+
         private void salvaconnomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogMain.ShowDialog() == DialogResult.OK)
@@ -102,6 +126,32 @@ namespace Notepad_2021
                     MessageBoxIcon.Question);
         }
 
+        private string getFileNameFromPath(string fp)
+        {
+            string[] mySplit = fp.Split('\\');
+            return mySplit[mySplit.Length - 1];
+        }
+
+        private void openDocument(string fp)
+        {
+            try
+            {
+                richTextBoxMain.Text = File.ReadAllText(fp);
+                savedContent = richTextBoxMain.Text;
+                filePath = fp;
+                fileName = getFileNameFromPath(fp);
+                setFormTitle();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(
+                    "Problemi durante l'apertura del file.",
+                    "ATTENZIONE!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
         private void saveDocument(string fp)
         {
             try
@@ -110,8 +160,7 @@ namespace Notepad_2021
                 File.WriteAllText(fp, content);
                 savedContent = content;
                 filePath = fp;
-                string[] mySplit = fp.Split('\\');
-                fileName = mySplit[mySplit.Length - 1];
+                fileName = getFileNameFromPath(fp);
                 setFormTitle();
             }
             catch (Exception)
