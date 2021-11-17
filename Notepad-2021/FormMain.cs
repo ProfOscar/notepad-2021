@@ -1,19 +1,29 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Notepad_2021
 {
     public partial class FormMain : Form
     {
 
+        #region variables
+
         string fileName;
         string filePath;
         string savedContent;
 
+        #endregion
+
+        #region initialization
+
         public FormMain()
         {
             InitializeComponent();
+            pageSetupDialogMain.Document = printDocumentMain;
+            printDialogMain.Document = printDocumentMain;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -35,29 +45,9 @@ namespace Notepad_2021
             this.Text = fileName + this.Tag;
         }
 
-        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #endregion
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (richTextBoxMain.Text != savedContent)
-            {
-                DialogResult result = checkIfUserWantToSave();
-                if (result == DialogResult.Cancel) e.Cancel = true;
-                else if (result == DialogResult.Yes)
-                {
-                    if (filePath != "") saveDocument(filePath);
-                    else
-                    {
-                        DialogResult saveResponse = saveFileDialogMain.ShowDialog();
-                        if (saveResponse == DialogResult.Cancel) e.Cancel = true;
-                        else saveDocument(saveFileDialogMain.FileName);
-                    }
-                }
-            }
-        }
+        #region menu-item handlers
 
         private void nuovoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -103,12 +93,6 @@ namespace Notepad_2021
             }
         }
 
-        private void salvaconnomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (saveFileDialogMain.ShowDialog() == DialogResult.OK)
-                saveDocument(saveFileDialogMain.FileName);
-        }
-
         private void salvaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (filePath.Length == 0)
@@ -116,6 +100,84 @@ namespace Notepad_2021
             else
                 saveDocument(filePath);
         }
+
+        private void salvaconnomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialogMain.ShowDialog() == DialogResult.OK)
+                saveDocument(saveFileDialogMain.FileName);
+        }
+
+        private void impostapaginaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pageSetupDialogMain.ShowDialog();
+        }
+
+        private void stampaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printDocumentMain.DocumentName = fileName;
+            if (printDialogMain.ShowDialog() == DialogResult.OK)
+            {
+                printDocumentMain.Print();
+            }
+        }
+
+        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #endregion
+
+        #region event handlers
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (richTextBoxMain.Text != savedContent)
+            {
+                DialogResult result = checkIfUserWantToSave();
+                if (result == DialogResult.Cancel) e.Cancel = true;
+                else if (result == DialogResult.Yes)
+                {
+                    if (filePath != "") saveDocument(filePath);
+                    else
+                    {
+                        DialogResult saveResponse = saveFileDialogMain.ShowDialog();
+                        if (saveResponse == DialogResult.Cancel) e.Cancel = true;
+                        else saveDocument(saveFileDialogMain.FileName);
+                    }
+                }
+            }
+        }
+
+        private void richTextBoxMain_TextChanged(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.Text != savedContent && fileName[0] != '*')
+            {
+                fileName = "*" + fileName;
+                setFormTitle();
+            }
+            else if (richTextBoxMain.Text == savedContent && fileName[0] == '*')
+            {
+                fileName = fileName.Remove(0, 1);
+                setFormTitle();
+            }
+        }
+
+        private void printDocumentMain_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            string content = richTextBoxMain.Text;
+            Font font = richTextBoxMain.Font;
+            e.Graphics.DrawString(
+                content,
+                font,
+                new SolidBrush(Color.Black),
+                e.MarginBounds.X,
+                e.MarginBounds.Y);
+        }
+
+        #endregion
+
+        #region helper functions
 
         private DialogResult checkIfUserWantToSave()
         {
@@ -173,17 +235,6 @@ namespace Notepad_2021
             }
         }
 
-        private void richTextBoxMain_TextChanged(object sender, EventArgs e)
-        {
-            if (richTextBoxMain.Text != savedContent && fileName[0] != '*')
-            {
-                fileName = "*" + fileName;
-                setFormTitle();
-            } else if(richTextBoxMain.Text == savedContent && fileName[0] == '*')
-            {
-                fileName = fileName.Remove(0, 1);
-                setFormTitle();
-            }
-        }
+        #endregion
     }
 }
