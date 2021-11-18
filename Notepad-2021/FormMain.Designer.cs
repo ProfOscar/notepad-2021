@@ -71,7 +71,7 @@
             this.indiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBoxMain = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxMain = new RichTextBoxEx();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
@@ -467,6 +467,8 @@
             // 
             // printDocumentMain
             // 
+            this.printDocumentMain.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentMain_BeginPrint);
+            this.printDocumentMain.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentMain_EndPrint);
             this.printDocumentMain.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMain_PrintPage);
             // 
             // FormMain
@@ -518,7 +520,7 @@
         private System.Windows.Forms.ToolStripMenuItem indiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem informazionisuToolStripMenuItem;
-        private System.Windows.Forms.RichTextBox richTextBoxMain;
+        private RichTextBoxEx richTextBoxMain;
         private System.Windows.Forms.StatusStrip statusBarMain;
         private System.Windows.Forms.ToolStripMenuItem visualizzaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminaToolStripMenuItem;
