@@ -120,13 +120,33 @@ namespace Notepad_2021
             printDocumentMain.DocumentName = fileName;
             if (printDialogMain.ShowDialog() == DialogResult.OK)
             {
-                printDocumentMain.Print();
+                try
+                {
+                    printDocumentMain.Print();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(
+                        "Problemi durante la stampa.\nSe stai stampando su file verifica che il file di destinazione non sia aperto.",
+                        "ATTENZIONE!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
         }
 
         private void esciToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void carattereToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialogMain.Font = richTextBoxMain.Font;
+            if (fontDialogMain.ShowDialog() == DialogResult.OK)
+            {
+                richTextBoxMain.Font = fontDialogMain.Font;
+            }
         }
 
         #endregion
