@@ -41,6 +41,8 @@ namespace Notepad_2021
             savedContent = "";
             richTextBoxMain.Clear();
             setFormTitle();
+            annullaToolStripMenuItem.Enabled = false;
+            enableDisableCopyCut();
         }
 
         private void setFormTitle()
@@ -129,9 +131,44 @@ namespace Notepad_2021
             Close();
         }
 
+        private void annullaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.Undo();
+        }
+
+        private void tagliaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.Cut();
+        }
+
+        private void copiaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.Copy();
+        }
+
+        private void incollaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.Paste();
+        }
+
+        private void eliminaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.SelectedText = "";
+        }
+
+        private void selezionatuttoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.SelectAll();
+        }
+
         #endregion
 
         #region event handlers
+
+        private void FormMain_Activated(object sender, EventArgs e)
+        {
+            incollaToolStripMenuItem.Enabled = Clipboard.ContainsText() || Clipboard.ContainsImage();
+        }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -154,6 +191,7 @@ namespace Notepad_2021
 
         private void richTextBoxMain_TextChanged(object sender, EventArgs e)
         {
+            annullaToolStripMenuItem.Enabled = true;
             if (richTextBoxMain.Text != savedContent && fileName[0] != '*')
             {
                 fileName = "*" + fileName;
@@ -164,6 +202,11 @@ namespace Notepad_2021
                 fileName = fileName.Remove(0, 1);
                 setFormTitle();
             }
+        }
+
+        private void richTextBoxMain_SelectionChanged(object sender, EventArgs e)
+        {
+            enableDisableCopyCut();
         }
 
         private void printDocumentMain_BeginPrint(object sender, PrintEventArgs e)
@@ -235,6 +278,7 @@ namespace Notepad_2021
                 filePath = fp;
                 fileName = getFileNameFromPath(fp);
                 setFormTitle();
+                annullaToolStripMenuItem.Enabled = false;
             }
             catch (Exception)
             {
@@ -267,6 +311,15 @@ namespace Notepad_2021
             }
         }
 
+        private void enableDisableCopyCut()
+        {
+            bool enableButtons = richTextBoxMain.SelectedText.Length > 0;
+            copiaToolStripMenuItem.Enabled = enableButtons;
+            tagliaToolStripMenuItem.Enabled = enableButtons;
+            eliminaToolStripMenuItem.Enabled = enableButtons;
+        }
+
         #endregion
+
     }
 }
