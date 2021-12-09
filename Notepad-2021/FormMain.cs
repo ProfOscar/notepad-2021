@@ -25,6 +25,7 @@ namespace Notepad_2021
         public FormMain()
         {
             InitializeComponent();
+            richTextBoxMain.WordWrap = acapoautomaticoToolStripMenuItem.Checked;
             pageSetupDialogMain.Document = printDocumentMain;
             printDialogMain.Document = printDocumentMain;
         }
@@ -156,9 +157,30 @@ namespace Notepad_2021
             richTextBoxMain.SelectedText = "";
         }
 
+        private void vaiAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormVaiAllaRiga formVaiAllaRiga = new FormVaiAllaRiga();
+            if (formVaiAllaRiga.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Riga: " + formVaiAllaRiga.NumeroRiga);
+            }
+        }
+
         private void selezionatuttoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBoxMain.SelectAll();
+        }
+
+        private void oraDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            richTextBoxMain.SelectedText = now.ToString("t") + " " + now.ToString("d");
+        }
+
+        private void acapoautomaticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.WordWrap = acapoautomaticoToolStripMenuItem.Checked;
+            vaiAToolStripMenuItem.Enabled = !acapoautomaticoToolStripMenuItem.Checked;
         }
 
         #endregion
@@ -320,6 +342,5 @@ namespace Notepad_2021
         }
 
         #endregion
-
     }
 }
