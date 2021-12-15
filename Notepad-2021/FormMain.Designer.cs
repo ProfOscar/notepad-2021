@@ -71,7 +71,6 @@
             this.indiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBoxMain = new Notepad_2021.RichTextBoxEx();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
@@ -79,6 +78,7 @@
             this.pageSetupDialogMain = new System.Windows.Forms.PageSetupDialog();
             this.printDialogMain = new System.Windows.Forms.PrintDialog();
             this.printDocumentMain = new System.Drawing.Printing.PrintDocument();
+            this.richTextBoxMain = new Notepad_2021.RichTextBoxEx();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,6 +215,7 @@
             this.annullaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.annullaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.annullaToolStripMenuItem.Text = "&Annulla";
+            this.annullaToolStripMenuItem.Click += new System.EventHandler(this.annullaToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -229,6 +230,7 @@
             this.tagliaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.tagliaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.tagliaToolStripMenuItem.Text = "&Taglia";
+            this.tagliaToolStripMenuItem.Click += new System.EventHandler(this.tagliaToolStripMenuItem_Click);
             // 
             // copiaToolStripMenuItem
             // 
@@ -238,6 +240,7 @@
             this.copiaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copiaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.copiaToolStripMenuItem.Text = "&Copia";
+            this.copiaToolStripMenuItem.Click += new System.EventHandler(this.copiaToolStripMenuItem_Click);
             // 
             // incollaToolStripMenuItem
             // 
@@ -247,6 +250,7 @@
             this.incollaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.incollaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.incollaToolStripMenuItem.Text = "&Incolla";
+            this.incollaToolStripMenuItem.Click += new System.EventHandler(this.incollaToolStripMenuItem_Click);
             // 
             // eliminaToolStripMenuItem
             // 
@@ -254,6 +258,7 @@
             this.eliminaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.eliminaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.eliminaToolStripMenuItem.Text = "E&limina";
+            this.eliminaToolStripMenuItem.Click += new System.EventHandler(this.eliminaToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -301,6 +306,7 @@
             this.vaiAToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.vaiAToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.vaiAToolStripMenuItem.Text = "Vai a...";
+            this.vaiAToolStripMenuItem.Click += new System.EventHandler(this.vaiAToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -313,6 +319,7 @@
             this.selezionatuttoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.selezionatuttoToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.selezionatuttoToolStripMenuItem.Text = "Seleziona &tutto";
+            this.selezionatuttoToolStripMenuItem.Click += new System.EventHandler(this.selezionatuttoToolStripMenuItem_Click);
             // 
             // oraDataToolStripMenuItem
             // 
@@ -320,6 +327,7 @@
             this.oraDataToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.oraDataToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.oraDataToolStripMenuItem.Text = "Ora/Data";
+            this.oraDataToolStripMenuItem.Click += new System.EventHandler(this.oraDataToolStripMenuItem_Click);
             // 
             // formatoToolStripMenuItem
             // 
@@ -336,6 +344,7 @@
             this.acapoautomaticoToolStripMenuItem.Name = "acapoautomaticoToolStripMenuItem";
             this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acapoautomaticoToolStripMenuItem.Text = "A capo au&tomatico";
+            this.acapoautomaticoToolStripMenuItem.Click += new System.EventHandler(this.acapoautomaticoToolStripMenuItem_Click);
             // 
             // carattereToolStripMenuItem
             // 
@@ -427,18 +436,6 @@
             this.informazionisuToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.informazionisuToolStripMenuItem.Text = "Informazioni &su Blocco note";
             // 
-            // richTextBoxMain
-            // 
-            this.richTextBoxMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxMain.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxMain.Location = new System.Drawing.Point(0, 24);
-            this.richTextBoxMain.Name = "richTextBoxMain";
-            this.richTextBoxMain.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBoxMain.Size = new System.Drawing.Size(784, 395);
-            this.richTextBoxMain.TabIndex = 1;
-            this.richTextBoxMain.Text = "";
-            this.richTextBoxMain.TextChanged += new System.EventHandler(this.richTextBoxMain_TextChanged);
-            // 
             // statusBarMain
             // 
             this.statusBarMain.Location = new System.Drawing.Point(0, 419);
@@ -472,6 +469,19 @@
             this.printDocumentMain.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentMain_EndPrint);
             this.printDocumentMain.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMain_PrintPage);
             // 
+            // richTextBoxMain
+            // 
+            this.richTextBoxMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxMain.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxMain.Location = new System.Drawing.Point(0, 24);
+            this.richTextBoxMain.Name = "richTextBoxMain";
+            this.richTextBoxMain.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
+            this.richTextBoxMain.Size = new System.Drawing.Size(784, 395);
+            this.richTextBoxMain.TabIndex = 1;
+            this.richTextBoxMain.Text = "";
+            this.richTextBoxMain.SelectionChanged += new System.EventHandler(this.richTextBoxMain_SelectionChanged);
+            this.richTextBoxMain.TextChanged += new System.EventHandler(this.richTextBoxMain_TextChanged);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,6 +493,7 @@
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "FormMain";
             this.Tag = " - Blocco note di Windows";
+            this.Activated += new System.EventHandler(this.FormMain_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
