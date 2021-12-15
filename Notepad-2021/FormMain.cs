@@ -44,6 +44,7 @@ namespace Notepad_2021
             setFormTitle();
             annullaToolStripMenuItem.Enabled = false;
             enableDisableCopyCut();
+            enableDisableFinds();
         }
 
         private void setFormTitle()
@@ -236,7 +237,6 @@ namespace Notepad_2021
 
         private void richTextBoxMain_TextChanged(object sender, EventArgs e)
         {
-            annullaToolStripMenuItem.Enabled = true;
             if (richTextBoxMain.Text != savedContent && fileName[0] != '*')
             {
                 fileName = "*" + fileName;
@@ -247,6 +247,8 @@ namespace Notepad_2021
                 fileName = fileName.Remove(0, 1);
                 setFormTitle();
             }
+            annullaToolStripMenuItem.Enabled = true;
+            enableDisableFinds();
         }
 
         private void richTextBoxMain_SelectionChanged(object sender, EventArgs e)
@@ -358,10 +360,16 @@ namespace Notepad_2021
 
         private void enableDisableCopyCut()
         {
-            bool enableButtons = richTextBoxMain.SelectedText.Length > 0;
-            copiaToolStripMenuItem.Enabled = enableButtons;
-            tagliaToolStripMenuItem.Enabled = enableButtons;
-            eliminaToolStripMenuItem.Enabled = enableButtons;
+            copiaToolStripMenuItem.Enabled = richTextBoxMain.SelectedText.Length > 0;
+            tagliaToolStripMenuItem.Enabled = copiaToolStripMenuItem.Enabled;
+            eliminaToolStripMenuItem.Enabled = copiaToolStripMenuItem.Enabled;
+        }
+
+        private void enableDisableFinds()
+        {
+            trovaToolStripMenuItem.Enabled = richTextBoxMain.Text.Length > 0;
+            trovaSuccessivoToolStripMenuItem.Enabled = trovaToolStripMenuItem.Enabled;
+            trovaPrecedenteToolStripMenuItem.Enabled = trovaToolStripMenuItem.Enabled;
         }
 
         #endregion
