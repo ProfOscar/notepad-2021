@@ -52,6 +52,7 @@
             this.txtNumeroRiga.Name = "txtNumeroRiga";
             this.txtNumeroRiga.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroRiga.TabIndex = 1;
+            this.txtNumeroRiga.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroRiga_KeyPress);
             // 
             // btnVaiA
             // 
@@ -90,6 +91,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormVaiAllaRiga";
             this.Text = "Vai alla riga";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormVaiAllaRiga_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderGeneric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

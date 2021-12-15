@@ -179,10 +179,13 @@ namespace Notepad_2021
 
         private void vaiAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormVaiAllaRiga formVaiAllaRiga = new FormVaiAllaRiga();
+            FormVaiAllaRiga formVaiAllaRiga = new FormVaiAllaRiga(
+                richTextBoxMain.Lines.Length, 
+                richTextBoxMain.GetLineFromCharIndex(richTextBoxMain.SelectionStart));
             if (formVaiAllaRiga.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Riga: " + formVaiAllaRiga.NumeroRiga);
+                int numRiga = richTextBoxMain.GetFirstCharIndexFromLine(formVaiAllaRiga.NumeroRiga - 1);
+                if (numRiga > -1) richTextBoxMain.SelectionStart = numRiga;
             }
         }
 
