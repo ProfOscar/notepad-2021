@@ -373,5 +373,17 @@ namespace Notepad_2021
         }
 
         #endregion
+
+        private void trovaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTrova ft = new FormTrova();
+            ft.ShowDialog();
+        }
+
+        private void sostituisciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSostituisci fs = new FormSostituisci();
+            fs.ShowDialog();
+        }
     }
 }

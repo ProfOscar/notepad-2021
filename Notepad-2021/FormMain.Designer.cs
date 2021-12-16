@@ -278,6 +278,7 @@
             this.trovaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.trovaToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.trovaToolStripMenuItem.Text = "Trova...";
+            this.trovaToolStripMenuItem.Click += new System.EventHandler(this.trovaToolStripMenuItem_Click);
             // 
             // trovaSuccessivoToolStripMenuItem
             // 
@@ -299,6 +300,7 @@
             this.sostituisciToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.sostituisciToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.sostituisciToolStripMenuItem.Text = "Sostituisci...";
+            this.sostituisciToolStripMenuItem.Click += new System.EventHandler(this.sostituisciToolStripMenuItem_Click);
             // 
             // vaiAToolStripMenuItem
             // 

@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBaseTrovaSostituisci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBaseTrovaSostituisci.Designer.cs">
+      <DependentUpon>FormBaseTrovaSostituisci.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSostituisci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSostituisci.Designer.cs">
+      <DependentUpon>FormSostituisci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTrova.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTrova.Designer.cs">
+      <DependentUpon>FormTrova.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVaiAllaRiga.cs">
       <SubType>Form</SubType>
@@ -63,8 +81,17 @@
     <Compile Include="RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="FormBaseTrovaSostituisci.resx">
+      <DependentUpon>FormBaseTrovaSostituisci.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSostituisci.resx">
+      <DependentUpon>FormSostituisci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrova.resx">
+      <DependentUpon>FormTrova.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVaiAllaRiga.resx">
       <DependentUpon>FormVaiAllaRiga.cs</DependentUpon>
