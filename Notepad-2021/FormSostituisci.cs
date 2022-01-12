@@ -19,7 +19,7 @@ namespace Notepad_2021
 
         private void FormSostituisci_Load(object sender, EventArgs e)
         {
-            btnCancel.Location = new Point(252, 90);
+            btnCancel.Location = new Point(252, 96);
         }
     }
 }

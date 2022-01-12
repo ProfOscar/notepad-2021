@@ -178,6 +178,33 @@ namespace Notepad_2021
             richTextBoxMain.SelectedText = "";
         }
 
+        private void cercaConBingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
+
+        private void trovaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTrova ft = new FormTrova();
+            ft.Show();
+        }
+
+        private void trovaSuccessivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
+
+        private void trovaPrecedenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO");
+        }
+
+        private void sostituisciToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSostituisci fs = new FormSostituisci();
+            fs.Show();
+        }
+
         private void vaiAToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormVaiAllaRiga formVaiAllaRiga = new FormVaiAllaRiga(
@@ -373,17 +400,5 @@ namespace Notepad_2021
         }
 
         #endregion
-
-        private void trovaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormTrova ft = new FormTrova();
-            ft.ShowDialog();
-        }
-
-        private void sostituisciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormSostituisci fs = new FormSostituisci();
-            fs.ShowDialog();
-        }
     }
 }

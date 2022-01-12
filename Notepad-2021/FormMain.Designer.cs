@@ -271,6 +271,7 @@
             this.cercaConBingToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.cercaConBingToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.cercaConBingToolStripMenuItem.Text = "Cerca con Bing...";
+            this.cercaConBingToolStripMenuItem.Click += new System.EventHandler(this.cercaConBingToolStripMenuItem_Click);
             // 
             // trovaToolStripMenuItem
             // 
@@ -286,6 +287,7 @@
             this.trovaSuccessivoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.trovaSuccessivoToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.trovaSuccessivoToolStripMenuItem.Text = "Trova Successivo";
+            this.trovaSuccessivoToolStripMenuItem.Click += new System.EventHandler(this.trovaSuccessivoToolStripMenuItem_Click);
             // 
             // trovaPrecedenteToolStripMenuItem
             // 
@@ -293,6 +295,7 @@
             this.trovaPrecedenteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F3)));
             this.trovaPrecedenteToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.trovaPrecedenteToolStripMenuItem.Text = "Trova precedente";
+            this.trovaPrecedenteToolStripMenuItem.Click += new System.EventHandler(this.trovaPrecedenteToolStripMenuItem_Click);
             // 
             // sostituisciToolStripMenuItem
             // 

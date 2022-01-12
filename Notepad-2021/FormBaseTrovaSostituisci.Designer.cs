@@ -90,6 +90,7 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Annulla";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormBaseTrovaSostituisci
             // 
@@ -105,6 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormBaseTrovaSostituisci";
             this.Text = "FormBaseTrovaSostituisci";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

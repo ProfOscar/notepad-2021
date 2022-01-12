@@ -58,8 +58,9 @@
             this.Controls.Add(this.btnSubstAll);
             this.Controls.Add(this.btnSubst);
             this.Name = "FormSostituisci";
-            this.Text = "FormSostituisci";
+            this.Text = "Sostituisci";
             this.Load += new System.EventHandler(this.FormSostituisci_Load);
+            this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.btnSubst, 0);
             this.Controls.SetChildIndex(this.btnSubstAll, 0);
             this.ResumeLayout(false);
