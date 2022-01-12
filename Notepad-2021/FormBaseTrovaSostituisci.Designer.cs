@@ -62,6 +62,7 @@
             this.chkUpLow.TabIndex = 2;
             this.chkUpLow.Text = "Maiuscole/minuscole";
             this.chkUpLow.UseVisualStyleBackColor = true;
+            this.chkUpLow.CheckedChanged += new System.EventHandler(this.chkUpLow_CheckedChanged);
             // 
             // chkTextAround
             // 
@@ -72,6 +73,7 @@
             this.chkTextAround.TabIndex = 3;
             this.chkTextAround.Text = "Testo intorno";
             this.chkTextAround.UseVisualStyleBackColor = true;
+            this.chkTextAround.CheckedChanged += new System.EventHandler(this.chkTextAround_CheckedChanged);
             // 
             // btnFind
             // 

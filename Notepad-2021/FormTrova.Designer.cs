@@ -66,6 +66,7 @@
             this.rbUp.TabIndex = 4;
             this.rbUp.Text = "Su";
             this.rbUp.UseVisualStyleBackColor = true;
+            this.rbUp.CheckedChanged += new System.EventHandler(this.rbUp_CheckedChanged);
             // 
             // FormTrova
             // 

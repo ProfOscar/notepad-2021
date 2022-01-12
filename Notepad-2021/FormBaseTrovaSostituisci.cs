@@ -15,6 +15,9 @@ namespace Notepad_2021
         public FormBaseTrovaSostituisci()
         {
             InitializeComponent();
+            txtFind.Text = FindSubClass.Parameters.textToFind;
+            chkUpLow.Checked = FindSubClass.Parameters.isCaseSensitive;
+            chkTextAround.Checked = FindSubClass.Parameters.isTextAround;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -27,13 +30,28 @@ namespace Notepad_2021
             FindSubClass.Parameters.textToFind = txtFind.Text;
         }
 
+        private void chkUpLow_CheckedChanged(object sender, EventArgs e)
+        {
+            FindSubClass.Parameters.isCaseSensitive = chkUpLow.Checked;
+        }
+
+        private void chkTextAround_CheckedChanged(object sender, EventArgs e)
+        {
+            FindSubClass.Parameters.isTextAround = chkTextAround.Checked;
+        }
+
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if (FindSubClass.Find() == -1) MessageBox.Show(
+            if (FindSubClass.Find() == -1)
+            {
+                this.TopMost = false;
+                MessageBox.Show(
                 "Impossibile trovare \"" + FindSubClass.Parameters.textToFind + "\"",
                 "Blocco note",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+                this.TopMost = true;
+            }
         }
     }
 }

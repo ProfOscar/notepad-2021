@@ -22,11 +22,29 @@ namespace Notepad_2021
 
         public static int Find()
         {
-            RichTextBoxFinds options = 0;
-            if (Parameters.isUp) options &= RichTextBoxFinds.Reverse;
-            if (Parameters.isCaseSensitive) options &= RichTextBoxFinds.MatchCase;
+            RichTextBoxFinds options = RichTextBoxFinds.None;
+            int start = 0;
+            int end = -1;
+            if (Parameters.isUp)
+            {
+                options |= RichTextBoxFinds.Reverse;
+                end = Target.SelectionStart;
+                if (end == 0) return -1;
+            }
+            else
+            {
+                start = Target.SelectionStart + Target.SelectionLength;
+                if (start == Target.TextLength) return -1;
+            }
+            if (Parameters.isCaseSensitive) options |= RichTextBoxFinds.MatchCase;
+            if (Parameters.isTextAround) options |= RichTextBoxFinds.WholeWord;
             Target.Focus();
-            return Target.Find(Parameters.textToFind, options);
+            return Target.Find(
+                Parameters.textToFind, 
+                start,
+                end,
+                options
+                );
         }
     }
 }
