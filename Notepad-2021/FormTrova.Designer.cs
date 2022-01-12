@@ -48,6 +48,7 @@
             // rbDown
             // 
             this.rbDown.AutoSize = true;
+            this.rbDown.Checked = true;
             this.rbDown.Location = new System.Drawing.Point(54, 19);
             this.rbDown.Name = "rbDown";
             this.rbDown.Size = new System.Drawing.Size(41, 17);
@@ -63,7 +64,6 @@
             this.rbUp.Name = "rbUp";
             this.rbUp.Size = new System.Drawing.Size(38, 17);
             this.rbUp.TabIndex = 4;
-            this.rbUp.TabStop = true;
             this.rbUp.Text = "Su";
             this.rbUp.UseVisualStyleBackColor = true;
             // 
@@ -75,6 +75,7 @@
             this.Controls.Add(this.gbDirection);
             this.Name = "FormTrova";
             this.Text = "Trova";
+            this.Controls.SetChildIndex(this.btnCancel, 0);
             this.Controls.SetChildIndex(this.gbDirection, 0);
             this.gbDirection.ResumeLayout(false);
             this.gbDirection.PerformLayout();

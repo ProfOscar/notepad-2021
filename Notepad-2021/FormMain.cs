@@ -28,6 +28,7 @@ namespace Notepad_2021
             richTextBoxMain.WordWrap = acapoautomaticoToolStripMenuItem.Checked;
             pageSetupDialogMain.Document = printDocumentMain;
             printDialogMain.Document = printDocumentMain;
+            FindSubClass.Target = richTextBoxMain;
         }
 
         private void FormMain_Load(object sender, EventArgs e)

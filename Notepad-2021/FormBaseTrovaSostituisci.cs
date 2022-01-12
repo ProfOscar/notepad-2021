@@ -21,5 +21,19 @@ namespace Notepad_2021
         {
             this.Close();
         }
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            FindSubClass.Parameters.textToFind = txtFind.Text;
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (FindSubClass.Find() == -1) MessageBox.Show(
+                "Impossibile trovare \"" + FindSubClass.Parameters.textToFind + "\"",
+                "Blocco note",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
     }
 }

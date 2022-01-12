@@ -51,6 +51,7 @@
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(189, 20);
             this.txtFind.TabIndex = 1;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // chkUpLow
             // 
@@ -80,6 +81,7 @@
             this.btnFind.TabIndex = 6;
             this.btnFind.Text = "Trova successivo";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnCancel
             // 
