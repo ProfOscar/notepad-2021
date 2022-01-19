@@ -14,7 +14,7 @@ namespace Notepad_2021
 
         public struct Parameters
         {
-            public static string textToFind;
+            public static string textToFind = "";
             public static bool isUp = false;
             public static bool isCaseSensitive = false;
             public static bool isTextAround = false;
@@ -45,6 +45,15 @@ namespace Notepad_2021
                 end,
                 options
                 );
+        }
+
+        public static void ShowNotFoundMessage()
+        {
+            MessageBox.Show(
+                "Impossibile trovare \"" + FindSubClass.Parameters.textToFind + "\"",
+                "Blocco note",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
     }
 }

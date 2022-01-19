@@ -286,7 +286,7 @@
             this.trovaSuccessivoToolStripMenuItem.Name = "trovaSuccessivoToolStripMenuItem";
             this.trovaSuccessivoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.trovaSuccessivoToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.trovaSuccessivoToolStripMenuItem.Text = "Trova Successivo";
+            this.trovaSuccessivoToolStripMenuItem.Text = "Trova successivo";
             this.trovaSuccessivoToolStripMenuItem.Click += new System.EventHandler(this.trovaSuccessivoToolStripMenuItem_Click);
             // 
             // trovaPrecedenteToolStripMenuItem

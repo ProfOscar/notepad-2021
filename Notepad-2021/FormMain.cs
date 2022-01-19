@@ -192,12 +192,34 @@ namespace Notepad_2021
 
         private void trovaSuccessivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO");
+            if (FindSubClass.Parameters.textToFind.Length == 0)
+            {
+                trovaToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                FindSubClass.Parameters.isUp = false;
+                if (FindSubClass.Find() == -1)
+                {
+                    FindSubClass.ShowNotFoundMessage();
+                }
+            }
         }
 
         private void trovaPrecedenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO");
+            if (FindSubClass.Parameters.textToFind.Length == 0)
+            {
+                trovaToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                FindSubClass.Parameters.isUp = true;
+                if (FindSubClass.Find() == -1)
+                {
+                    FindSubClass.ShowNotFoundMessage();
+                }
+            }
         }
 
         private void sostituisciToolStripMenuItem_Click(object sender, EventArgs e)
