@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -181,7 +182,39 @@ namespace Notepad_2021
 
         private void cercaConBingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("TODO");
+            string url = "https://www.bing.com/search?q=";
+            /*
+            string key = richTextBoxMain.SelectedText;
+            if (key.Length == 0)
+            {
+                int begin = richTextBoxMain.SelectionStart;
+                int end = richTextBoxMain.Find(" ", begin, richTextBoxMain.TextLength, RichTextBoxFinds.None);
+                key = richTextBoxMain.Text.Substring(begin, end - begin);
+            }
+            */
+            int startPos = 0; int finalPos = richTextBoxMain.TextLength - 1;
+            if (richTextBoxMain.SelectionStart == 0)
+            {
+                finalPos = richTextBoxMain.Find(new char[] { ' ' }, 0);
+            }
+            else
+            {
+                if (richTextBoxMain.SelectionLength > 0)
+                {
+                    startPos = richTextBoxMain.SelectionStart;
+                    finalPos = startPos + richTextBoxMain.SelectionLength;
+                }
+                else
+                {
+                    startPos = richTextBoxMain.Text.LastIndexOf(' ', richTextBoxMain.SelectionStart - 1);
+                    if (startPos == -1) startPos = 0;
+                    finalPos = richTextBoxMain.Text.IndexOf(' ', richTextBoxMain.SelectionStart);
+                    if (finalPos == -1) finalPos = richTextBoxMain.TextLength;
+                }
+            }
+            int length = finalPos - startPos;
+            string key = richTextBoxMain.Text.Substring(startPos, length);
+            Process.Start(url + key);
         }
 
         private void trovaToolStripMenuItem_Click(object sender, EventArgs e)
