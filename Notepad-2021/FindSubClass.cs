@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Notepad_2021
         public struct Parameters
         {
             public static string textToFind = "";
+            public static string textToReplace = "";
             public static bool isUp = false;
             public static bool isCaseSensitive = false;
             public static bool isTextAround = false;
@@ -45,6 +47,12 @@ namespace Notepad_2021
                 end,
                 options
                 );
+        }
+
+        internal static void ReplaceAll()
+        {
+            RegexOptions options = Parameters.isCaseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;
+            Target.Text = Regex.Replace(Target.Text, Parameters.textToFind, Parameters.textToReplace, options);
         }
 
         public static void ShowNotFoundMessage()

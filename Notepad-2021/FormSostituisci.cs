@@ -15,11 +15,32 @@ namespace Notepad_2021
         public FormSostituisci()
         {
             InitializeComponent();
+            btnReplace.Enabled = btnReplaceAll.Enabled = false;
         }
 
         private void FormSostituisci_Load(object sender, EventArgs e)
         {
             btnCancel.Location = new Point(252, 96);
+        }
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            btnReplace.Enabled = btnReplaceAll.Enabled = txtFind.TextLength > 0;
+        }
+
+        private void txtReplace_TextChanged(object sender, EventArgs e)
+        {
+            FindSubClass.Parameters.textToReplace = txtReplace.Text;
+        }
+
+        private void btnReplace_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReplaceAll_Click(object sender, EventArgs e)
+        {
+            FindSubClass.ReplaceAll();
         }
     }
 }

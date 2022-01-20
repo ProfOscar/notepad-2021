@@ -119,10 +119,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblFind;
-        private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.CheckBox chkUpLow;
         private System.Windows.Forms.CheckBox chkTextAround;
         private System.Windows.Forms.Button btnFind;
         public System.Windows.Forms.Button btnCancel;
+        public System.Windows.Forms.TextBox txtFind;
     }
 }
