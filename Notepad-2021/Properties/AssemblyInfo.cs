@@ -1,17 +1,18 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Le informazioni generali relative a un assembly sono controllate dal seguente 
 // set di attributi. Modificare i valori di questi attributi per modificare le informazioni
 // associate a un assembly.
-[assembly: AssemblyTitle("Notepad-2021")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Blocco note")]
+[assembly: AssemblyDescription("Semplice editor di testo che riproduce tutte le funzionalità presenti sul programma di sistema di Windows.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Notepad-2021")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Vallauri 4 Inf B")]
+[assembly: AssemblyProduct("Blocco note")]
+[assembly: AssemblyCopyright("Copyright © 2021 Vallauri")]
+[assembly: AssemblyTrademark("® 2021 - 4 Inf B")]
 [assembly: AssemblyCulture("")]
 
 // Se si imposta ComVisible su false, i tipi in questo assembly non saranno visibili
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("it")]

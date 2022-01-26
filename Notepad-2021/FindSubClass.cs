@@ -49,6 +49,15 @@ namespace Notepad_2021
                 );
         }
 
+        internal static int Replace()
+        {
+            if (Target.SelectedText == Parameters.textToFind)
+            {
+                Target.SelectedText = Parameters.textToReplace;
+            }
+            return Find();
+        }
+
         internal static void ReplaceAll()
         {
             RegexOptions options = Parameters.isCaseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;

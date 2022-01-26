@@ -15,7 +15,7 @@ namespace Notepad_2021
         public FormBaseTrovaSostituisci()
         {
             InitializeComponent();
-            txtFind.Text = FindSubClass.Parameters.textToFind;
+            txtFind.Text = FindSubClass.Target.SelectedText != "" ? FindSubClass.Target.SelectedText : FindSubClass.Parameters.textToFind;
             btnFind.Enabled = txtFind.TextLength > 0;
             chkUpLow.Checked = FindSubClass.Parameters.isCaseSensitive;
             chkTextAround.Checked = FindSubClass.Parameters.isTextAround;

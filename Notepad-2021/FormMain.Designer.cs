@@ -67,8 +67,8 @@
             this.ripristinaZoomPredefinitoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barraDistatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sommarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inviafeedbackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
@@ -410,25 +410,27 @@
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sommarioToolStripMenuItem,
-            this.indiceToolStripMenuItem,
+            this.guidaToolStripMenuItem,
+            this.inviafeedbackToolStripMenuItem,
             this.toolStripSeparator5,
             this.informazionisuToolStripMenuItem});
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
             this.ToolStripMenuItem.Size = new System.Drawing.Size(24, 20);
             this.ToolStripMenuItem.Text = "&?";
             // 
-            // sommarioToolStripMenuItem
+            // guidaToolStripMenuItem
             // 
-            this.sommarioToolStripMenuItem.Name = "sommarioToolStripMenuItem";
-            this.sommarioToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.sommarioToolStripMenuItem.Text = "&Guida";
+            this.guidaToolStripMenuItem.Name = "guidaToolStripMenuItem";
+            this.guidaToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.guidaToolStripMenuItem.Text = "&Guida";
+            this.guidaToolStripMenuItem.Click += new System.EventHandler(this.guidaToolStripMenuItem_Click);
             // 
-            // indiceToolStripMenuItem
+            // inviafeedbackToolStripMenuItem
             // 
-            this.indiceToolStripMenuItem.Name = "indiceToolStripMenuItem";
-            this.indiceToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.indiceToolStripMenuItem.Text = "&Invia feedback";
+            this.inviafeedbackToolStripMenuItem.Name = "inviafeedbackToolStripMenuItem";
+            this.inviafeedbackToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.inviafeedbackToolStripMenuItem.Text = "&Invia feedback";
+            this.inviafeedbackToolStripMenuItem.Click += new System.EventHandler(this.inviafeedbackToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -440,6 +442,7 @@
             this.informazionisuToolStripMenuItem.Name = "informazionisuToolStripMenuItem";
             this.informazionisuToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.informazionisuToolStripMenuItem.Text = "Informazioni &su Blocco note";
+            this.informazionisuToolStripMenuItem.Click += new System.EventHandler(this.informazionisuToolStripMenuItem_Click);
             // 
             // statusBarMain
             // 
@@ -533,8 +536,8 @@
         private System.Windows.Forms.ToolStripMenuItem acapoautomaticoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carattereToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sommarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inviafeedbackToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem informazionisuToolStripMenuItem;
         private RichTextBoxEx richTextBoxMain;

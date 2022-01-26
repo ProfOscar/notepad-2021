@@ -283,6 +283,22 @@ namespace Notepad_2021
             vaiAToolStripMenuItem.Enabled = !acapoautomaticoToolStripMenuItem.Checked;
         }
 
+        private void guidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://go.microsoft.com/fwlink/?LinkId=834783");
+        }
+
+        private void inviafeedbackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/ProfOscar/notepad-2021/issues");
+        }
+
+        private void informazionisuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBoxMain aboutForm = new AboutBoxMain();
+            aboutForm.ShowDialog();
+        }
+
         #endregion
 
         #region event handlers

@@ -35,7 +35,12 @@ namespace Notepad_2021
 
         private void btnReplace_Click(object sender, EventArgs e)
         {
-
+            if (FindSubClass.Replace() == -1)
+            {
+                //this.TopMost = false;
+                FindSubClass.ShowNotFoundMessage();
+                //this.TopMost = true;
+            }
         }
 
         private void btnReplaceAll_Click(object sender, EventArgs e)
