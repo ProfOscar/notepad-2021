@@ -15,7 +15,7 @@ namespace Notepad_2021
         public FormSostituisci()
         {
             InitializeComponent();
-            btnReplace.Enabled = btnReplaceAll.Enabled = false;
+            txtFind_TextChanged(null, null);
         }
 
         private void FormSostituisci_Load(object sender, EventArgs e)

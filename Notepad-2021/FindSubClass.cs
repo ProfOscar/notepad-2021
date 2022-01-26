@@ -52,7 +52,8 @@ namespace Notepad_2021
         internal static void ReplaceAll()
         {
             RegexOptions options = Parameters.isCaseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;
-            Target.Text = Regex.Replace(Target.Text, Parameters.textToFind, Parameters.textToReplace, options);
+            string myTextTofind = Parameters.isTextAround ? String.Format(@"\b{0}\b", Parameters.textToFind) : Parameters.textToFind;
+            Target.Text = Regex.Replace(Target.Text, myTextTofind, Parameters.textToReplace, options);
         }
 
         public static void ShowNotFoundMessage()
