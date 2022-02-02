@@ -146,15 +146,6 @@ namespace Notepad_2021
             Close();
         }
 
-        private void carattereToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fontDialogMain.Font = richTextBoxMain.Font;
-            if (fontDialogMain.ShowDialog() == DialogResult.OK)
-            {
-                richTextBoxMain.Font = fontDialogMain.Font;
-            }
-        }
-
         private void annullaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBoxMain.Undo();
@@ -282,6 +273,37 @@ namespace Notepad_2021
             richTextBoxMain.WordWrap = acapoautomaticoToolStripMenuItem.Checked;
             vaiAToolStripMenuItem.Enabled = !acapoautomaticoToolStripMenuItem.Checked;
         }
+
+        private void carattereToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialogMain.Font = richTextBoxMain.Font;
+            if (fontDialogMain.ShowDialog() == DialogResult.OK)
+            {
+                richTextBoxMain.Font = fontDialogMain.Font;
+            }
+        }
+
+        private void zoomAvantiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.ZoomFactor < 63)
+            {
+                richTextBoxMain.ZoomFactor += (float)0.2;
+            }
+        }
+
+        private void zoomIndietroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBoxMain.ZoomFactor > 0.35)
+            {
+                richTextBoxMain.ZoomFactor -= 0.2F;
+            }
+        }
+
+        private void ripristinaZoomPredefinitoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxMain.ZoomFactor = 1;
+        }
+
 
         private void guidaToolStripMenuItem_Click(object sender, EventArgs e)
         {

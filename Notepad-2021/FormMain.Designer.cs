@@ -347,14 +347,14 @@
             // 
             this.acapoautomaticoToolStripMenuItem.CheckOnClick = true;
             this.acapoautomaticoToolStripMenuItem.Name = "acapoautomaticoToolStripMenuItem";
-            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acapoautomaticoToolStripMenuItem.Text = "A capo au&tomatico";
             this.acapoautomaticoToolStripMenuItem.Click += new System.EventHandler(this.acapoautomaticoToolStripMenuItem_Click);
             // 
             // carattereToolStripMenuItem
             // 
             this.carattereToolStripMenuItem.Name = "carattereToolStripMenuItem";
-            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carattereToolStripMenuItem.Text = "Cara&ttere...";
             this.carattereToolStripMenuItem.Click += new System.EventHandler(this.carattereToolStripMenuItem_Click);
             // 
@@ -374,7 +374,7 @@
             this.zoomIndietroToolStripMenuItem,
             this.ripristinaZoomPredefinitoToolStripMenuItem});
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zoomToolStripMenuItem.Text = "&Zoom";
             // 
             // zoomAvantiToolStripMenuItem
@@ -384,6 +384,7 @@
             this.zoomAvantiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemplus)));
             this.zoomAvantiToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.zoomAvantiToolStripMenuItem.Text = "&Zoom avanti";
+            this.zoomAvantiToolStripMenuItem.Click += new System.EventHandler(this.zoomAvantiToolStripMenuItem_Click);
             // 
             // zoomIndietroToolStripMenuItem
             // 
@@ -392,6 +393,7 @@
             this.zoomIndietroToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.OemMinus)));
             this.zoomIndietroToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.zoomIndietroToolStripMenuItem.Text = "&Zoom indietro";
+            this.zoomIndietroToolStripMenuItem.Click += new System.EventHandler(this.zoomIndietroToolStripMenuItem_Click);
             // 
             // ripristinaZoomPredefinitoToolStripMenuItem
             // 
@@ -399,12 +401,13 @@
             this.ripristinaZoomPredefinitoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D0)));
             this.ripristinaZoomPredefinitoToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.ripristinaZoomPredefinitoToolStripMenuItem.Text = "&Ripristina zoom predefinito";
+            this.ripristinaZoomPredefinitoToolStripMenuItem.Click += new System.EventHandler(this.ripristinaZoomPredefinitoToolStripMenuItem_Click);
             // 
             // barraDistatoToolStripMenuItem
             // 
             this.barraDistatoToolStripMenuItem.CheckOnClick = true;
             this.barraDistatoToolStripMenuItem.Name = "barraDistatoToolStripMenuItem";
-            this.barraDistatoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.barraDistatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.barraDistatoToolStripMenuItem.Text = "Barra di &stato";
             // 
             // ToolStripMenuItem
