@@ -72,6 +72,10 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelLineaColonna = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelZoom = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTerminatoreRiga = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelEncoding = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
             this.fontDialogMain = new System.Windows.Forms.FontDialog();
@@ -80,6 +84,7 @@
             this.printDocumentMain = new System.Drawing.Printing.PrintDocument();
             this.richTextBoxMain = new Notepad_2021.RichTextBoxEx();
             this.menuStripMain.SuspendLayout();
+            this.statusBarMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -347,14 +352,14 @@
             // 
             this.acapoautomaticoToolStripMenuItem.CheckOnClick = true;
             this.acapoautomaticoToolStripMenuItem.Name = "acapoautomaticoToolStripMenuItem";
-            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.acapoautomaticoToolStripMenuItem.Text = "A capo au&tomatico";
             this.acapoautomaticoToolStripMenuItem.Click += new System.EventHandler(this.acapoautomaticoToolStripMenuItem_Click);
             // 
             // carattereToolStripMenuItem
             // 
             this.carattereToolStripMenuItem.Name = "carattereToolStripMenuItem";
-            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.carattereToolStripMenuItem.Text = "Cara&ttere...";
             this.carattereToolStripMenuItem.Click += new System.EventHandler(this.carattereToolStripMenuItem_Click);
             // 
@@ -374,7 +379,7 @@
             this.zoomIndietroToolStripMenuItem,
             this.ripristinaZoomPredefinitoToolStripMenuItem});
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.zoomToolStripMenuItem.Text = "&Zoom";
             // 
             // zoomAvantiToolStripMenuItem
@@ -407,8 +412,9 @@
             // 
             this.barraDistatoToolStripMenuItem.CheckOnClick = true;
             this.barraDistatoToolStripMenuItem.Name = "barraDistatoToolStripMenuItem";
-            this.barraDistatoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.barraDistatoToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.barraDistatoToolStripMenuItem.Text = "Barra di &stato";
+            this.barraDistatoToolStripMenuItem.Click += new System.EventHandler(this.barraDistatoToolStripMenuItem_Click);
             // 
             // ToolStripMenuItem
             // 
@@ -449,11 +455,50 @@
             // 
             // statusBarMain
             // 
-            this.statusBarMain.Location = new System.Drawing.Point(0, 419);
+            this.statusBarMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelEncoding,
+            this.toolStripStatusLabelTerminatoreRiga,
+            this.toolStripStatusLabelZoom,
+            this.toolStripStatusLabelLineaColonna});
+            this.statusBarMain.Location = new System.Drawing.Point(0, 417);
+            this.statusBarMain.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
             this.statusBarMain.Name = "statusBarMain";
-            this.statusBarMain.Size = new System.Drawing.Size(784, 22);
+            this.statusBarMain.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.statusBarMain.Size = new System.Drawing.Size(784, 24);
             this.statusBarMain.TabIndex = 2;
             this.statusBarMain.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelLineaColonna
+            // 
+            this.toolStripStatusLabelLineaColonna.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelLineaColonna.Margin = new System.Windows.Forms.Padding(30, 3, 0, 2);
+            this.toolStripStatusLabelLineaColonna.Name = "toolStripStatusLabelLineaColonna";
+            this.toolStripStatusLabelLineaColonna.Size = new System.Drawing.Size(85, 19);
+            this.toolStripStatusLabelLineaColonna.Text = "linea, colonna";
+            // 
+            // toolStripStatusLabelZoom
+            // 
+            this.toolStripStatusLabelZoom.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelZoom.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
+            this.toolStripStatusLabelZoom.Name = "toolStripStatusLabelZoom";
+            this.toolStripStatusLabelZoom.Size = new System.Drawing.Size(39, 19);
+            this.toolStripStatusLabelZoom.Text = "100%";
+            // 
+            // toolStripStatusLabelTerminatoreRiga
+            // 
+            this.toolStripStatusLabelTerminatoreRiga.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelTerminatoreRiga.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
+            this.toolStripStatusLabelTerminatoreRiga.Name = "toolStripStatusLabelTerminatoreRiga";
+            this.toolStripStatusLabelTerminatoreRiga.Size = new System.Drawing.Size(98, 19);
+            this.toolStripStatusLabelTerminatoreRiga.Text = "Windows (CRLF)";
+            // 
+            // toolStripStatusLabelEncoding
+            // 
+            this.toolStripStatusLabelEncoding.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelEncoding.Margin = new System.Windows.Forms.Padding(50, 3, 0, 2);
+            this.toolStripStatusLabelEncoding.Name = "toolStripStatusLabelEncoding";
+            this.toolStripStatusLabelEncoding.Size = new System.Drawing.Size(42, 19);
+            this.toolStripStatusLabelEncoding.Text = "UTF-8";
             // 
             // saveFileDialogMain
             // 
@@ -487,7 +532,7 @@
             this.richTextBoxMain.Location = new System.Drawing.Point(0, 24);
             this.richTextBoxMain.Name = "richTextBoxMain";
             this.richTextBoxMain.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBoxMain.Size = new System.Drawing.Size(784, 395);
+            this.richTextBoxMain.Size = new System.Drawing.Size(784, 393);
             this.richTextBoxMain.TabIndex = 1;
             this.richTextBoxMain.Text = "";
             this.richTextBoxMain.SelectionChanged += new System.EventHandler(this.richTextBoxMain_SelectionChanged);
@@ -509,6 +554,8 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
+            this.statusBarMain.ResumeLayout(false);
+            this.statusBarMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,6 +613,10 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialogMain;
         private System.Windows.Forms.PrintDialog printDialogMain;
         private System.Drawing.Printing.PrintDocument printDocumentMain;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelLineaColonna;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelZoom;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTerminatoreRiga;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEncoding;
     }
 }
 

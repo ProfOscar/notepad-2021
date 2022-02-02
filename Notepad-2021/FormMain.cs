@@ -304,6 +304,10 @@ namespace Notepad_2021
             richTextBoxMain.ZoomFactor = 1;
         }
 
+        private void barraDistatoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statusBarMain.Visible = barraDistatoToolStripMenuItem.Checked;
+        }
 
         private void guidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
