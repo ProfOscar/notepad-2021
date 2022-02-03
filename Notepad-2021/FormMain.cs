@@ -291,15 +291,16 @@ namespace Notepad_2021
         {
             if (richTextBoxMain.ZoomFactor < 63)
             {
-                richTextBoxMain.ZoomFactor += (float)0.2;
+                richTextBoxMain.ZoomFactor += (float)0.1;
             }
+            toolStripStatusLabelZoom.Text = (richTextBoxMain.ZoomFactor * 100).ToString("0.##") + "%";
         }
 
         private void zoomIndietroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (richTextBoxMain.ZoomFactor > 0.35)
             {
-                richTextBoxMain.ZoomFactor -= 0.2F;
+                richTextBoxMain.ZoomFactor -= 0.1F;
             }
         }
 
@@ -382,6 +383,12 @@ namespace Notepad_2021
                 line = Regex.Matches(portion, @"\n").Count + 1;
                 int lastNewLinePos = portion.LastIndexOf('\n');
                 column = richTextBoxMain.SelectionStart - lastNewLinePos;
+            }
+            else if (richTextBoxMain.Text.Length == 0 && richTextBoxMain.TextLength == 0)
+            {
+                // A causa di bug nel comportamento del richtextbox al cambio di wordwrap
+                line = 1;
+                column = 1;
             }
             string st = "Linea " + line + ", colonna " + column;
             toolStripStatusLabelLineaColonna.Text = st;
