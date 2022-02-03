@@ -72,10 +72,10 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.informazionisuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelLineaColonna = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelZoom = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelTerminatoreRiga = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelEncoding = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTerminatoreRiga = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelZoom = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelLineaColonna = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveFileDialogMain = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogMain = new System.Windows.Forms.OpenFileDialog();
             this.fontDialogMain = new System.Windows.Forms.FontDialog();
@@ -352,14 +352,14 @@
             // 
             this.acapoautomaticoToolStripMenuItem.CheckOnClick = true;
             this.acapoautomaticoToolStripMenuItem.Name = "acapoautomaticoToolStripMenuItem";
-            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.acapoautomaticoToolStripMenuItem.Text = "A capo au&tomatico";
             this.acapoautomaticoToolStripMenuItem.Click += new System.EventHandler(this.acapoautomaticoToolStripMenuItem_Click);
             // 
             // carattereToolStripMenuItem
             // 
             this.carattereToolStripMenuItem.Name = "carattereToolStripMenuItem";
-            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carattereToolStripMenuItem.Text = "Cara&ttere...";
             this.carattereToolStripMenuItem.Click += new System.EventHandler(this.carattereToolStripMenuItem_Click);
             // 
@@ -468,21 +468,13 @@
             this.statusBarMain.TabIndex = 2;
             this.statusBarMain.Text = "statusStrip1";
             // 
-            // toolStripStatusLabelLineaColonna
+            // toolStripStatusLabelEncoding
             // 
-            this.toolStripStatusLabelLineaColonna.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.toolStripStatusLabelLineaColonna.Margin = new System.Windows.Forms.Padding(30, 3, 0, 2);
-            this.toolStripStatusLabelLineaColonna.Name = "toolStripStatusLabelLineaColonna";
-            this.toolStripStatusLabelLineaColonna.Size = new System.Drawing.Size(85, 19);
-            this.toolStripStatusLabelLineaColonna.Text = "linea, colonna";
-            // 
-            // toolStripStatusLabelZoom
-            // 
-            this.toolStripStatusLabelZoom.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.toolStripStatusLabelZoom.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
-            this.toolStripStatusLabelZoom.Name = "toolStripStatusLabelZoom";
-            this.toolStripStatusLabelZoom.Size = new System.Drawing.Size(39, 19);
-            this.toolStripStatusLabelZoom.Text = "100%";
+            this.toolStripStatusLabelEncoding.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelEncoding.Margin = new System.Windows.Forms.Padding(50, 3, 0, 2);
+            this.toolStripStatusLabelEncoding.Name = "toolStripStatusLabelEncoding";
+            this.toolStripStatusLabelEncoding.Size = new System.Drawing.Size(42, 19);
+            this.toolStripStatusLabelEncoding.Text = "UTF-8";
             // 
             // toolStripStatusLabelTerminatoreRiga
             // 
@@ -492,13 +484,21 @@
             this.toolStripStatusLabelTerminatoreRiga.Size = new System.Drawing.Size(98, 19);
             this.toolStripStatusLabelTerminatoreRiga.Text = "Windows (CRLF)";
             // 
-            // toolStripStatusLabelEncoding
+            // toolStripStatusLabelZoom
             // 
-            this.toolStripStatusLabelEncoding.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.toolStripStatusLabelEncoding.Margin = new System.Windows.Forms.Padding(50, 3, 0, 2);
-            this.toolStripStatusLabelEncoding.Name = "toolStripStatusLabelEncoding";
-            this.toolStripStatusLabelEncoding.Size = new System.Drawing.Size(42, 19);
-            this.toolStripStatusLabelEncoding.Text = "UTF-8";
+            this.toolStripStatusLabelZoom.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelZoom.Margin = new System.Windows.Forms.Padding(20, 3, 0, 2);
+            this.toolStripStatusLabelZoom.Name = "toolStripStatusLabelZoom";
+            this.toolStripStatusLabelZoom.Size = new System.Drawing.Size(39, 19);
+            this.toolStripStatusLabelZoom.Text = "100%";
+            // 
+            // toolStripStatusLabelLineaColonna
+            // 
+            this.toolStripStatusLabelLineaColonna.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+            this.toolStripStatusLabelLineaColonna.Margin = new System.Windows.Forms.Padding(30, 3, 0, 2);
+            this.toolStripStatusLabelLineaColonna.Name = "toolStripStatusLabelLineaColonna";
+            this.toolStripStatusLabelLineaColonna.Size = new System.Drawing.Size(106, 19);
+            this.toolStripStatusLabelLineaColonna.Text = "Linea 1, colonna 1";
             // 
             // saveFileDialogMain
             // 

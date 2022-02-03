@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Notepad_2021
@@ -15,6 +16,9 @@ namespace Notepad_2021
         string fileName;
         string filePath;
         string savedContent;
+
+        int line = 1;
+        int column = 1;
 
         // variable to trace text to print for pagination
         private int m_nFirstCharOnPage;
@@ -372,6 +376,15 @@ namespace Notepad_2021
         private void richTextBoxMain_SelectionChanged(object sender, EventArgs e)
         {
             enableDisableCopyCut();
+            if (richTextBoxMain.Text.Length > 0)
+            {
+                string portion = richTextBoxMain.Text.Substring(0, richTextBoxMain.SelectionStart);
+                line = Regex.Matches(portion, @"\n").Count + 1;
+                int lastNewLinePos = portion.LastIndexOf('\n');
+                column = richTextBoxMain.SelectionStart - lastNewLinePos;
+            }
+            string st = "Linea " + line + ", colonna " + column;
+            toolStripStatusLabelLineaColonna.Text = st;
         }
 
         private void printDocumentMain_BeginPrint(object sender, PrintEventArgs e)
