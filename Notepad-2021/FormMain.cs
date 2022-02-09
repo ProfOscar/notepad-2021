@@ -20,6 +20,12 @@ namespace Notepad_2021
         int line = 1;
         int column = 1;
 
+        const string WIN = "Windows (CRLF)";
+        const string MAC = "Macintosh (CR)";
+        const string LIN = "Unix (LF)";
+        string lineTerminator = "";
+        // Read this: https://stackoverflow.com/questions/7067899/richtextbox-newline-conversion
+
         // variable to trace text to print for pagination
         private int m_nFirstCharOnPage;
 
@@ -51,6 +57,8 @@ namespace Notepad_2021
             annullaToolStripMenuItem.Enabled = false;
             enableDisableCopyCut();
             enableDisableFinds();
+            toolStripStatusLabelTerminatoreRiga.Text = Environment.NewLine == "\r\n" ? WIN : Environment.NewLine == "\r" ? MAC : LIN;
+            lineTerminator = Environment.NewLine;
         }
 
         private void setFormTitle()
@@ -465,7 +473,23 @@ namespace Notepad_2021
         {
             try
             {
-                richTextBoxMain.Text = File.ReadAllText(fp);
+                string rawText = File.ReadAllText(fp);
+                if (rawText.Contains("\r\n")) 
+                { 
+                    toolStripStatusLabelTerminatoreRiga.Text = WIN;
+                    lineTerminator = "\r\n";
+                }
+                else if (rawText.Contains("\r")) 
+                { 
+                    toolStripStatusLabelTerminatoreRiga.Text = MAC;
+                    lineTerminator = "\r";
+                }
+                else
+                {
+                    toolStripStatusLabelTerminatoreRiga.Text = LIN;
+                    lineTerminator = "\n";
+                }
+                richTextBoxMain.Text = rawText;
                 savedContent = richTextBoxMain.Text;
                 filePath = fp;
                 fileName = getFileNameFromPath(fp);
@@ -487,6 +511,7 @@ namespace Notepad_2021
             try
             {
                 string content = richTextBoxMain.Text;
+                content = content.Replace("\n", lineTerminator);
                 File.WriteAllText(fp, content);
                 savedContent = content;
                 filePath = fp;
