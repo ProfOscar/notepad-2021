@@ -293,7 +293,7 @@ namespace Notepad_2021
             {
                 richTextBoxMain.ZoomFactor += (float)0.1;
             }
-            toolStripStatusLabelZoom.Text = (richTextBoxMain.ZoomFactor * 100).ToString("0.##") + "%";
+            writeZoomInStatusBar();
         }
 
         private void zoomIndietroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -302,11 +302,18 @@ namespace Notepad_2021
             {
                 richTextBoxMain.ZoomFactor -= 0.1F;
             }
+            writeZoomInStatusBar();
         }
 
         private void ripristinaZoomPredefinitoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBoxMain.ZoomFactor = 1;
+            writeZoomInStatusBar();
+        }
+
+        private void writeZoomInStatusBar()
+        {
+            toolStripStatusLabelZoom.Text = (richTextBoxMain.ZoomFactor * 100).ToString("0") + "%";
         }
 
         private void barraDistatoToolStripMenuItem_Click(object sender, EventArgs e)
