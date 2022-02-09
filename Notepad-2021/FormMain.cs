@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -59,6 +60,7 @@ namespace Notepad_2021
             enableDisableFinds();
             toolStripStatusLabelTerminatoreRiga.Text = Environment.NewLine == "\r\n" ? WIN : Environment.NewLine == "\r" ? MAC : LIN;
             lineTerminator = Environment.NewLine;
+            toolStripStatusLabelEncoding.Text = "UTF-8";
         }
 
         private void setFormTitle()
@@ -489,6 +491,7 @@ namespace Notepad_2021
                     toolStripStatusLabelTerminatoreRiga.Text = LIN;
                     lineTerminator = "\n";
                 }
+                toolStripStatusLabelEncoding.Text = GetEncoding(fp).BodyName.ToUpper();
                 richTextBoxMain.Text = rawText;
                 savedContent = richTextBoxMain.Text;
                 filePath = fp;
@@ -540,6 +543,21 @@ namespace Notepad_2021
             trovaToolStripMenuItem.Enabled = richTextBoxMain.Text.Length > 0;
             trovaSuccessivoToolStripMenuItem.Enabled = trovaToolStripMenuItem.Enabled;
             trovaPrecedenteToolStripMenuItem.Enabled = trovaToolStripMenuItem.Enabled;
+        }
+
+        /// <summary>
+        /// Determines a text file's encoding by analyzing its byte order mark (BOM).
+        /// Defaults to UTF8.
+        /// </summary>
+        /// <param name="fileName">The text file to analyze.</param>
+        /// <returns>The detected encoding.</returns>
+        public static Encoding GetEncoding(string fileName)
+        {
+            using (var reader = new StreamReader(fileName, Encoding.UTF8, true))
+            {
+                reader.Peek(); // you need this!
+                return reader.CurrentEncoding;
+            }
         }
 
         #endregion
