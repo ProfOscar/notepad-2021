@@ -352,14 +352,14 @@
             // 
             this.acapoautomaticoToolStripMenuItem.CheckOnClick = true;
             this.acapoautomaticoToolStripMenuItem.Name = "acapoautomaticoToolStripMenuItem";
-            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acapoautomaticoToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.acapoautomaticoToolStripMenuItem.Text = "A capo au&tomatico";
             this.acapoautomaticoToolStripMenuItem.Click += new System.EventHandler(this.acapoautomaticoToolStripMenuItem_Click);
             // 
             // carattereToolStripMenuItem
             // 
             this.carattereToolStripMenuItem.Name = "carattereToolStripMenuItem";
-            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.carattereToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.carattereToolStripMenuItem.Text = "Cara&ttere...";
             this.carattereToolStripMenuItem.Click += new System.EventHandler(this.carattereToolStripMenuItem_Click);
             // 
@@ -546,6 +546,7 @@
             this.Controls.Add(this.richTextBoxMain);
             this.Controls.Add(this.statusBarMain);
             this.Controls.Add(this.menuStripMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "FormMain";
             this.Tag = " - Blocco note di Windows";

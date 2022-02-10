@@ -27,6 +27,8 @@ namespace Notepad_2021
         string lineTerminator = "";
         // Read this: https://stackoverflow.com/questions/7067899/richtextbox-newline-conversion
 
+        Encoding fileEncoding;
+
         // variable to trace text to print for pagination
         private int m_nFirstCharOnPage;
 
@@ -60,6 +62,7 @@ namespace Notepad_2021
             enableDisableFinds();
             toolStripStatusLabelTerminatoreRiga.Text = Environment.NewLine == "\r\n" ? WIN : Environment.NewLine == "\r" ? MAC : LIN;
             lineTerminator = Environment.NewLine;
+            fileEncoding = Encoding.Default;
             toolStripStatusLabelEncoding.Text = "UTF-8";
         }
 
@@ -491,7 +494,8 @@ namespace Notepad_2021
                     toolStripStatusLabelTerminatoreRiga.Text = LIN;
                     lineTerminator = "\n";
                 }
-                toolStripStatusLabelEncoding.Text = GetEncoding(fp).BodyName.ToUpper();
+                fileEncoding = GetEncoding(fp);
+                toolStripStatusLabelEncoding.Text = fileEncoding.BodyName.ToUpper();
                 richTextBoxMain.Text = rawText;
                 savedContent = richTextBoxMain.Text;
                 filePath = fp;
@@ -515,7 +519,7 @@ namespace Notepad_2021
             {
                 string content = richTextBoxMain.Text;
                 content = content.Replace("\n", lineTerminator);
-                File.WriteAllText(fp, content);
+                File.WriteAllText(fp, content, fileEncoding);
                 savedContent = content;
                 filePath = fp;
                 fileName = getFileNameFromPath(fp);
